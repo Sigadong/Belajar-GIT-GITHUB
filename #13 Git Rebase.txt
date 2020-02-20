@@ -1,0 +1,218 @@
+	########## REBASE ##########
+Ilustrasi: Kasus 1
+Misalnya kita memiliki sebuah repo dimana didalamnya terdapat 3 buah commit dan branchnya hanya ada satu yaitu master.
+Nah sebetulnya visualisasinya adalah ketika kita punya 3 buah commit maka pada commit yg terakhir adalah tempat pointer branchnya menempel
+jd branch master itu menunjuk ke arah commit terakhir. nah sekarang dari commit ke tiga ini kita akan membuat branch baru(bercabang) misalnya saja beri nama
+branch features, lalu kedepannya branch features ini kita modifikasi dan kita commit maka setelah ini yg terjadi adalah pointer branch nya pindah.
+Nah sekarang misalnya fitur pada branch features sudah oke dan ingin saya gunakan maka kita tinggal lakukan merging/git merge, nah disini yg kita punya adalah
+jalur direct fetch, jadi ketika kita merging maka merge nya akan memindahkan pointer branch master yg tadinya ada di commit ketiga sebelumnya menuju ke commit terakhir 
+dr branch features atau dengan kata lain pointernya akan sama/sejajar dan up to date dengan branch features. Dan ini istilahnya biasa disebut dgn "Fast-Forward Merge"(merging yg ideal= tidak menambahkan commit baru).
+
+Ilustrasi: Kasus 2
+Misalnya kita memiliki sebuah repo dimana didalamnya terdapat 3 buah commit dan branchnya hanya ada satu yaitu master.
+Nah sebetulnya visualisasinya adalah ketika kita punya 3 buah commit maka pada commit yg terakhir adalah tempat pointer branchnya menempel
+jd branch master itu menunjuk ke arah commit terakhir. nah sekarang dari commit ke tiga ini kita akan membuat branch baru(bercabang) misalnya saja beri nama
+branch features, lalu kedepannya branch features ini kita modifikasi dan kita commit maka setelah ini yg terjadi adalah pointer branch nya pindah.
+Nah sekarang misalnya fitur pada branch features sudah oke nah tapi sebelum features ini kita merging, ternyata master melakukan commit juga(misal teman satu tim kita ngemerge jg ke masternya) maka yg branch master akan
+nambah satu commit yg artinya menjadi empat commit dan pointernya jg berpindah ke commit ke empat nah disini kalua kita merging jelas tidak bisa menggunakan Fast-Forward Merge lagi karna sudah bukan direct fetch lagi.
+Apa bila kita merging pasti akan membuat commit baru dan ini biasa disebut merge commit dimana dua branch commit akan kita gabungkan lalu harus membuat commit baru(bertambah satu commit dimana branch master menjadi lima titik commit)
+Yang akhirnya pointernya Up to date/sejajar lagi antara dua branch tsb. Dan ini biasa di sebut dgn "Three-way Merge/ Merge Commit".
+
+
+dan ingin saya gunakan maka kita tinggal lakukan merging/git merge, nah disini yg kita punya adalah
+jalur direct fetch, jadi ketika kita merging maka merge nya akan memindahkan pointer branch master yg tadinya ada di commit ketiga sebelumnya menuju ke commit terakhir 
+dr branch features atau dengan kata lain pointernya akan sama/sejajar dan up to date dengan branch features. Dan ini istilahnya biasa disebut dgn Fast-Forward Merge(merging yg ideal= tidak menambahkan commit baru).
+
+
+#######################		#########################
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop
+$ git clone https://github.com/Sigadong/simple-landing-page.git
+Cloning into 'simple-landing-page'...
+remote: Enumerating objects: 27, done.
+remote: Counting objects: 100% (27/27), done.
+remote: Compressing objects: 100% (25/25), done.
+remote: Total 27 (delta 2), reused 5 (delta 1), pack-reused 0
+Unpacking objects: 100% (27/27), done.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop
+$ cd simple-landing-page
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ ls
+README.md  weblanding_ngobar-8/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git checkout -b fitur_keren
+Switched to a new branch 'fitur_keren'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ code .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git status
+On branch fitur_keren
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   weblanding_ngobar-8/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git commit -am "Mengubah warna tombol menjadi merah"
+[fitur_keren 5a9d2c9] Mengubah warna tombol menjadi merah
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ graph
+* 5a9d2c9 (HEAD -> fitur_keren) Mengubah warna tombol menjadi merah
+*   b1ece75 (origin/master, origin/HEAD, master) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git commit -am "Mengubah tulisan testimonial"
+[fitur_keren 82e342d] Mengubah tulisan testimonial
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/Sigadong/simple-landing-page
+   b1ece75..69e74dd  master     -> origin/master
+Updating b1ece75..69e74dd
+Fast-forward
+ weblanding_ngobar-8/index.html | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ graph
+* 69e74dd (HEAD -> master, origin/master, origin/HEAD) Mengubah warna tombol Our Work menjadi Hijau
+| * 82e342d (fitur_keren) Mengubah tulisan testimonial
+| * 5a9d2c9 Mengubah warna tombol menjadi merah
+|/
+*   b1ece75 Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git branch
+  fitur_keren
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git checkout fitur_keren
+Switched to branch 'fitur_keren'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: Mengubah warna tombol menjadi merah
+Applying: Mengubah tulisan testimonial
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ graph
+* 6e7ffbd (HEAD -> fitur_keren) Mengubah tulisan testimonial
+* c7a6a18 Mengubah warna tombol menjadi merah
+* 69e74dd (origin/master, origin/HEAD, master) Mengubah warna tombol Our Work menjadi Hijau
+*   b1ece75 Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (fitur_keren)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ graph
+* 6e7ffbd (fitur_keren) Mengubah tulisan testimonial
+* c7a6a18 Mengubah warna tombol menjadi merah
+* 69e74dd (HEAD -> master, origin/master, origin/HEAD) Mengubah warna tombol Our Work menjadi Hijau
+*   b1ece75 Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git rebase fitur_keren
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to fitur_keren.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ graph
+* 6e7ffbd (HEAD -> master, fitur_keren) Mengubah tulisan testimonial
+* c7a6a18 Mengubah warna tombol menjadi merah
+* 69e74dd (origin/master, origin/HEAD) Mengubah warna tombol Our Work menjadi Hijau
+*   b1ece75 Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ git push -u origin master
+graphEnumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 870 bytes | 290.00 KiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/Sigadong/simple-landing-page.git
+   69e74dd..6e7ffbd  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$ graph
+* 6e7ffbd (HEAD -> master, origin/master, origin/HEAD, fitur_keren) Mengubah tulisan testimonial
+* c7a6a18 Mengubah warna tombol menjadi merah
+* 69e74dd Mengubah warna tombol Our Work menjadi Hijau
+*   b1ece75 Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/Desktop/simple-landing-page (master)
+$

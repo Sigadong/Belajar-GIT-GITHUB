@@ -1,0 +1,230 @@
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~
+$ pwd
+/c/Users/IRWAN
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~
+$ cd desktop
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop
+$ cd irwan-test-repo2
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch dev
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+  dev
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git checkout dev
+Switched to branch 'dev'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ git branch
+* dev
+  master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ git status
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mahasiswa.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ git commit -am "Mengubah file mahasiswa.html"
+[dev 6d78ab3] Mengubah file mahasiswa.html
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ git status
+On branch dev
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ graph
+* 6d78ab3 (HEAD -> dev) Mengubah file mahasiswa.html
+*   5a3e102 (master) Merge branch 'staff'
+|\
+| * 082cb4d Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dev)
+$ git checkout master
+Switched to branch 'master'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+* 6d78ab3 (dev) Mengubah file mahasiswa.html
+*   5a3e102 (HEAD -> master) Merge branch 'staff'
+|\
+| * 082cb4d Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git commit -am "mengubah isi dari file mahasiswa.html"
+[master b04dcd3] mengubah isi dari file mahasiswa.html
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+* b04dcd3 (HEAD -> master) mengubah isi dari file mahasiswa.html
+| * 6d78ab3 (dev) Mengubah file mahasiswa.html
+|/
+*   5a3e102 Merge branch 'staff'
+|\
+| * 082cb4d Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git merge dev
+Auto-merging mahasiswa.html
+CONFLICT (content): Merge conflict in mahasiswa.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   mahasiswa.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master|MERGING)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master|MERGING)
+$ git commit
+[master a45740a] Merge branch 'dev'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+*   a45740a (HEAD -> master) Merge branch 'dev'
+|\
+| * 6d78ab3 (dev) Mengubah file mahasiswa.html
+* | b04dcd3 mengubah isi dari file mahasiswa.html
+|/
+*   5a3e102 Merge branch 'staff'
+|\
+| * 082cb4d Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch -d dev
+Deleted branch dev (was 6d78ab3).
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+* master
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git checkout 082cb4d
+Note: switching to '082cb4d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 082cb4d Menambahkan file staff.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 ((082cb4d...))
+$ graph
+*   a45740a (master) Merge branch 'dev'
+|\
+| * 6d78ab3 Mengubah file mahasiswa.html
+* | b04dcd3 mengubah isi dari file mahasiswa.html
+|/
+*   5a3e102 Merge branch 'staff'
+|\
+| * 082cb4d (HEAD) Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 ((082cb4d...))
+$ git branch test
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 ((082cb4d...))
+$ git branch
+* (HEAD detached at 082cb4d)
+  master
+  test
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 ((082cb4d...))
+$ graph
+*   a45740a (master) Merge branch 'dev'
+|\
+| * 6d78ab3 Mengubah file mahasiswa.html
+* | b04dcd3 mengubah isi dari file mahasiswa.html
+|/
+*   5a3e102 Merge branch 'staff'
+|\
+| * 082cb4d (HEAD, test) Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 ((082cb4d...))
+$ git checkout test
+Switched to branch 'test'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (test)
+$ graph
+*   a45740a (master) Merge branch 'dev'
+|\
+| * 6d78ab3 Mengubah file mahasiswa.html
+* | b04dcd3 mengubah isi dari file mahasiswa.html
+|/
+*   5a3e102 Merge branch 'staff'
+|\
+| * 082cb4d (HEAD -> test) Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+

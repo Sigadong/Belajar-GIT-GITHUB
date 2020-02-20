@@ -1,0 +1,121 @@
+  Ketika kita melakukan fork terhadap repo orang lain pada akun github, kemudian selanjutnya repo tersebut kita lakukan
+clone/duplikat ke dalam komputer lokal kita sebagai repo git.
+Berikut langkah-langkahnya :
+##########################
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ git clone https://github.com/irwantosiregar/simple-landing-page.git
+Cloning into 'simple-landing-page'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (17/17), done.
+remote: Total 18 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (18/18), done.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ ls
+CSS3/  simple-landing-page/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ cd simple-landing-page
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git remote
+origin
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git remote -v
+origin  https://github.com/irwantosiregar/simple-landing-page.git (fetch)
+origin  https://github.com/irwantosiregar/simple-landing-page.git (push)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git remote add sigadong https://github.com/Sigadong/simple-landing-page.git
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git remote
+origin
+sigadong
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git remote -v
+origin  https://github.com/irwantosiregar/simple-landing-page.git (fetch)
+origin  https://github.com/irwantosiregar/simple-landing-page.git (push)
+sigadong        https://github.com/Sigadong/simple-landing-page.git (fetch)
+sigadong        https://github.com/Sigadong/simple-landing-page.git (push)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+* 63e2aa2 (HEAD -> master, origin/master, origin/HEAD) Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git fetch sigadong
+From https://github.com/Sigadong/simple-landing-page
+ * [new branch]      master     -> sigadong/master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+* 63e2aa2 (HEAD -> master, sigadong/master, origin/master, origin/HEAD) Membuat web simple landing page
+* f63b248 Initial commit
+
+ NB : MISAL apabila terjadi perubahan pada repo asal yg sebelumnya kita fork, 
+     dgn perintah 'git status' kita tidak akan mengetahuinya,
+     sementara kita ingin tetap up to date terhadap setiap perubahan pada repo aslinya(yg kita fork).
+     Maka kita harus melakukan fetch terlebih dahulu ke repo(remote) aslinya.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git fetch sigadong
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/Sigadong/simple-landing-page
+   63e2aa2..abb2970  master     -> sigadong/master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+* abb2970 (sigadong/master) Mengubah warna tombol
+* 63e2aa2 (HEAD -> master, origin/master, origin/HEAD) Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git merge sigadong/master
+Updating 63e2aa2..abb2970
+Fast-forward
+ weblanding_ngobar-8/index.html | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+* abb2970 (HEAD -> master, sigadong/master) Mengubah warna tombol
+* 63e2aa2 (origin/master, origin/HEAD) Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git push -u origin master
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/irwantosiregar/simple-landing-page.git
+   63e2aa2..abb2970  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+* abb2970 (HEAD -> master, sigadong/master, origin/master, origin/HEAD) Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$
+
+

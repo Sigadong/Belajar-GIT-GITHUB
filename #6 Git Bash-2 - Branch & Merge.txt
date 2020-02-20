@@ -1,0 +1,241 @@
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2
+$ git init
+Initialized empty Git repository in C:/Users/IRWAN/Desktop/irwan-test-repo2/.git/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Desktop - Shortcut.lnk
+        mahasiswa.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git commit -m "Menambahkan file Mahasiswa.html"
+[master (root-commit) 46e4157] Menambahkan file Mahasiswa.html
+ 2 files changed, 19 insertions(+)
+ create mode 100644 Desktop - Shortcut.lnk
+ create mode 100644 mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git commit -am "Menambahkan data 1 mahasiswa"
+[master c5d4479] Menambahkan data 1 mahasiswa
+ 1 file changed, 1 insertion(+)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch dosen
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch staff
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+  dosen
+* master
+  staff
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git log
+commit c5d4479aa502f24e188693ad8c7366df2fdbf4bb (HEAD -> master, staff, dosen)
+Author: Sigadong <irwanto.regar30@gmail.com>
+Date:   Tue Jan 14 09:35:56 2020 +0700
+
+    Menambahkan data 1 mahasiswa
+
+commit 46e415732a6ec9b646abf7c30607282508f8ce19
+Author: Sigadong <irwanto.regar30@gmail.com>
+Date:   Tue Jan 14 09:32:43 2020 +0700
+
+    Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git log --all --decorate --oneline --graph
+* c5d4479 (HEAD -> master, staff, dosen) Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+* c5d4479 (HEAD -> master, staff, dosen) Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git checkout dosen
+Switched to branch 'dosen'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dosen)
+$ git status
+On branch dosen
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        staff.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (dosen)
+$ git checkout staff
+Switched to branch 'staff'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ git status
+On branch staff
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        staff.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ git commit -m "Menambahkan file staff.html"
+[staff 082cb4d] Menambahkan file staff.html
+ 1 file changed, 14 insertions(+)
+ create mode 100644 staff.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ alias graph="git log --all --decorate --oneline --graph"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ graph
+* 082cb4d (HEAD -> staff) Menambahkan file staff.html
+| * f32d2c5 (dosen) Menambahkan file dosen.html
+|/
+* c5d4479 (master) Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+
+
+
+#
+#
+
+
+
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ git branch
+  dosen
+  master
+* staff
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (staff)
+$ git checkout master
+Switched to branch 'master'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+  dosen
+* master
+  staff
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git merge dosen
+Updating c5d4479..f32d2c5
+Fast-forward
+ dosen.html | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+ create mode 100644 dosen.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+  dosen
+* master
+  staff
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch --merged
+  dosen
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch -d dosen
+Deleted branch dosen (was f32d2c5).
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+* master
+  staff
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+* 082cb4d (staff) Menambahkan file staff.html
+| * f32d2c5 (HEAD -> master) Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch
+* master
+  staff
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git merge staff
+Merge made by the 'recursive' strategy.
+ staff.html | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+ create mode 100644 staff.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ graph
+*   5a3e102 (HEAD -> master) Merge branch 'staff'
+|\
+| * 082cb4d (staff) Menambahkan file staff.html
+* | f32d2c5 Menambahkan file dosen.html
+|/
+* c5d4479 Menambahkan data 1 mahasiswa
+* 46e4157 Menambahkan file Mahasiswa.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch --merged
+* master
+  staff
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git branch -d staff
+Deleted branch staff (was 082cb4d).
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo2 (master)
+$
+
+
+
+
+
+

@@ -1,0 +1,308 @@
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~
+$ pwd
+/c/Users/IRWAN	
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~
+$ cd dekstop
+bash: cd: dekstop: No such file or directory
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~
+$ cd desktop
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop
+$ pwd
+/c/Users/IRWAN/desktop
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop
+$ ls
+'Adobe XD.lnk'*
+ desktop.ini
+ Figma.lnk*
+'Internet Download Manager.lnk'*
+ irwan-test-repo/
+'Media Player Classic - Shortcut.lnk'*
+'Microsoft Office Access 2007 - Shortcut.lnk'*
+'Microsoft Visual Studio 2008 - Shortcut.lnk'*
+ MindMaster.exe.lnk*
+ Natron.lnk*
+'PHP MANUAL-php.net'/
+'PR Materi PHP Dasar WPU.txt'
+'Sublime Text 3.lnk'*
+ UmmyVideoDownloader.lnk*
+'Visual Studio Code.lnk'*
+'Windows 10 Update Assistant.lnk'*
+'xampp-control.exe - Shortcut.lnk'*
+'XMind ZEN.lnk'*
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop
+$ cd irwan-test-repo
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo
+$ git init
+Initialized empty Git repository in C:/Users/IRWAN/Desktop/irwan-test-repo/.git/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ ls
+index.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git add index.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'IRWAN@DESKTOP-PUC61V7.(none)')
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git config --global user.name "Sigadong"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git config --global user.email "irwanto.regar30@gmail.com"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit -m "Menambahkan file index.html"
+[master (root-commit) 4bc1263] Menambahkan file index.html
+ 1 file changed, 10 insertions(+)
+ create mode 100644 index.html
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+        new file:   style.css
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit -m "Mengubah file index dan menambahkan file style.css"
+[master 867555e] Mengubah file index dan menambahkan file style.css
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 style.css
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+        new file:   style.css
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit -m "Mengubah file index dan menambahkan file style.css"
+[master 867555e] Mengubah file index dan menambahkan file style.css
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 style.css
+
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+        modified:   style.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        script.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit -m "melakukan perubahan pd index, menambah script.js dan menghapus style.css"
+[master 4d0221b] melakukan perubahan pd index, menambah script.js dan menghapus style.css
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+ create mode 100644 script.js
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git log -- style.css
+commit 4d0221b2b70a5076529dd5c8d01a21dbd6298e26 (HEAD -> master)
+Author: Sigadong <irwanto.regar30@gmail.com>
+Date:   Mon Jan 13 10:00:19 2020 +0700
+
+    melakukan perubahan pd index, menambah script.js dan menghapus style.css
+
+commit 867555e3be8fd71ea4ae9d3ba10066c2e31c1ad3
+Author: Sigadong <irwanto.regar30@gmail.com>
+Date:   Mon Jan 13 09:51:27 2020 +0700
+
+    Mengubah file index dan menambahkan file style.css
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git checkout 86755 -- style.css
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   style.css
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git commit -m "mengembalikan file style.css"
+[master 25eb5a1] mengembalikan file style.css
+ 1 file changed, 3 insertions(+)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 ~/desktop/irwan-test-repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

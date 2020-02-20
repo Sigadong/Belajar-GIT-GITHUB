@@ -1,0 +1,180 @@
+  ############# GITIGNORE ############# 
+ Gitignore berguna utk menyaring file working tree pada repo lokal kita yg akan kita add ke staging area dlm git, agar file
+tertentu yg tidak kita inginkan utk ditambahkan ke repo git di staging area tidak terbawa oleh 'git add .'
+a. Buat repo baru digithub dengan nama "coba-gitignore"
+b. Buat repo baru di git komp lokal kita dgn nama yg sama yaitu "mkdir coba-gitignore"
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ mkdir coba-gitignore
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ ls
+coba-gitignore/  CSS3/  simple-landing-page/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git
+$ cd coba-gitignore
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore
+$ git init
+Initialized empty Git repository in D:/WPU/Belajar Git/coba-gitignore/.git/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ code .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git remote add origin https://github.com/irwantosiregar/coba-gitignore.git
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   style.css
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git commit -m "Menambahkan 2 file"
+[master (root-commit) 7088d8b] Menambahkan 2 file
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 233 bytes | 116.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/irwantosiregar/coba-gitignore.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+NB : Misal kita membuat beberapa file di repo working area pada komp lokal kita(index.html, style.css, script.js, config.txt, .gitignore).
+Nah pada repo working kita tidak ingin mengikut sertakan file config.txt ketika melakukan 'git add .' kedalam repo staging area.
+Maka kita harus mendaftarkannya ke dalam file 'gitignore' dengan menulis nama file yaitu config.txt tsb 
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   script.js
+
+   NB : Sama halnya seperti yang diatas dimana terdapat banyak file dan beberapa folder(folder 'data', aplikasi.exe, index.html, style.css, script.js, config.txt, .gitignore).
+Nah Misal bagaimana jika pada repo working kita terdapat sebuah folder atau file dgn ekstensi .exe atau folder/file tententu yang dimana kita tidak ingin mengikut sertakan file dan folder tsb
+ketika melakukan 'git add .' kedalam repo git staging area.
+Maka kita juga harus mendaftarkannya ke dalam file 'gitignore' dengan menulis nama file dan folder tsb yaitu config.txt, aplikasi.exe, folder 'data/', dll..
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   script.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   script.js
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git commit -m "Menambahkan file lainnya"
+[master f88181f] Menambahkan file lainnya
+ 2 files changed, 3 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 script.js
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 333 bytes | 333.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/irwantosiregar/coba-gitignore.git
+   7088d8b..f88181f  master -> master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/coba-gitignore (master)
+$
+
+
+	Catatan PENTING !!
+Sebenarnya ketika kita mengelola sebuah repo git dikomputer lokal kemudian kita ingin menambahkan perubahan tertentu yg terjadi pada repo working area menuju ke dalam git/staging area
+dengan perintah 'git add .' dan kemudian kita melakukan push/mengirimkan perubahan tersebut ke repo github kita maka itulah sebabnya
+ketika proses push tsb sering mengikut sertakan file/folder yg sebenarnya tidak ingin kita kirimkan ke dalam repo staging area ataupun repo github, seperti
+file system '.DS_Store' bawaan sistem operasi MacOS atau 'Thumbs.db' bawaan OS Windows, dimana sebenarnya file tsb hidden dikomputer kita tetapi secara otomatis jg akan 
+ikut terbawa ketika melakukan add. Maka disinilah peran dari '.gitignore'.
+
+Dibawah ini adalah penjelasan mengenai folder/file apa saja yang sebaiknya boleh di ikut sertakan ke dalam .gitignore :
+* Terdapat banyak folder/file yang bisa di tuliskan ke dalam .gitignore baik itu file dari system operasi, software/aplikasi, framework aplikasi, dan lainnya.
+* Penjelasan lengkap Silahkan kunjungi official github ==> https://github.com/github/gitignore
+	-terdapat file-file yg disarankan utk di ignore di dalam file .gitignore tsb. misal framework ci/laravel.
+* Atau lebih gambang silahkan kunjungi => http://gitignore.io/
+	-terdapat inputan pencarian utk melakukan generate terhadap file-file apa saja yg sebaiknya diisi ke dalam .gitignore.
+	-Misal Inputkan : sistem Operasi lalu framework yg digunakan lalu teks editor => Windows, Laravel, VisualStudioCode
+	-Setelah di klik Create, Maka akan akan menampilkan hasil isi dari .gitignore tsb.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

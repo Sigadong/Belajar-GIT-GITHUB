@@ -1,0 +1,199 @@
+	## Berikut ini adalah lanjutan dari Multiple Remotes ##
+
+	########### REMOTE BRANCH ###########
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ ls
+README.md  weblanding_ngobar-8/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ code .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch features
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch
+  features
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git checkout features
+Switched to branch 'features'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git branch
+* features
+  master
+
+  NB : Ketika kita melakukan perubahan pada repo git lokal lalu di push ke repo github kita dan kita ingin mengusulkan 
+perubahan(pull request) kita ditarik oleh repo aslinya(repo orang lain yg kita fork). maka sebelum itu kita harus 
+membuat branch baru di repo git lokal ataupun repo github kita agar repo yg kita fork tetap terjaga dan menyesuaikan dengan repo aslinya
+karena barang kali pull request kita ditolak/tidak disetujui oleh pemilik repo asli.
+Berikut Proses kelanjutannya :
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git status
+On branch features
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   weblanding_ngobar-8/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git commit -am "Mengubah tulisan pada testimonial"
+[features e13e19c] Mengubah tulisan pada testimonial
+ 1 file changed, 157 insertions(+), 146 deletions(-)
+ rewrite weblanding_ngobar-8/index.html (93%)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git status
+On branch features
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ graph
+* e13e19c (HEAD -> features) Mengubah tulisan pada testimonial
+* abb2970 (sigadong/master, origin/master, origin/HEAD, master) Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git push origin features
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.03 KiB | 263.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'features' on GitHub by visiting:
+remote:      https://github.com/irwantosiregar/simple-landing-page/pull/new/features
+remote:
+To https://github.com/irwantosiregar/simple-landing-page.git
+ * [new branch]      features -> features
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ graph
+* e13e19c (HEAD -> features, origin/features) Mengubah tulisan pada testimonial
+* abb2970 (sigadong/master, origin/master, origin/HEAD, master) Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+--> Sampai tahap ini kita sudah melakukan perubahan teks testimonial pada repo lokal kita dan push ke akun github kita, selanjutnya 
+melakukan pull request(melalui github) terhadap branch repo features menuju ke repo aslinya si pemilik repo agar diketahui/disetujui.
+
+NB : Setelah kita mendapat konfirmasi melalui akun github kita bahwa pull request kita telah disetujui 
+oleh pemilik aslinya, maka selajutnya kita harus 'fetch' terlebih dahulu ke repo git lokal kita utk menarik 
+semua history commit dari repo aslinya.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git fetch sigadong
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/Sigadong/simple-landing-page
+   abb2970..b1ece75  master     -> sigadong/master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ graph
+*   b1ece75 (sigadong/master) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c (HEAD -> features, origin/features) Mengubah tulisan pada testimonial
+|/
+* abb2970 (origin/master, origin/HEAD, master) Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git branch
+* features
+  master
+	* **Berpindah/masuk ke branch master** *
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (features)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch
+  features
+* master
+
+	* **Menggabungkan repo git lokal dengan repo aslinya(master) karena perubahan sudah di setujui ** *
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git merge sigadong/master
+Updating abb2970..b1ece75
+Fast-forward
+ weblanding_ngobar-8/index.html | 243 +++++++++++++++++++++--------------------
+ 1 file changed, 127 insertions(+), 116 deletions(-)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+*   b1ece75 (HEAD -> master, sigadong/master) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c (origin/features, features) Mengubah tulisan pada testimonial
+|/
+* abb2970 (origin/master, origin/HEAD) Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+	* ** Mengirim perubahan yg sudah disetujui tsb menuju ke repo branch master akun github kita ** * 
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/irwantosiregar/simple-landing-page.git
+   abb2970..b1ece75  master -> master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+*   b1ece75 (HEAD -> master, sigadong/master, origin/master, origin/HEAD) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c (origin/features, features) Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+	* ** Menghapus branch features dari repo git lokal kita, karena hanya dipakai ketika ingin mengusulkan perubahan ke repo aslinya ** * 
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch -d features
+Deleted branch features (was e13e19c).
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git branch
+* master
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+*   b1ece75 (HEAD -> master, sigadong/master, origin/master, origin/HEAD) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c (origin/features) Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+	* ** Menghapus 'branch cadangan(features)' dengan melakukan push/mengirim perubahan 'delete'  menuju ke repo github kita.** *
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ git push origin --delete features
+To https://github.com/irwantosiregar/simple-landing-page.git
+ - [deleted]         features
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$ graph
+*   b1ece75 (HEAD -> master, sigadong/master, origin/master, origin/HEAD) Merge pull request #1 from irwantosiregar/features
+|\
+| * e13e19c Mengubah tulisan pada testimonial
+|/
+* abb2970 Mengubah warna tombol
+* 63e2aa2 Membuat web simple landing page
+* f63b248 Initial commit
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Belajar Git/simple-landing-page (master)
+$

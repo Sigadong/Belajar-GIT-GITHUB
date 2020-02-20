@@ -1,0 +1,89 @@
+1. Buat repository baru di halaman github dengan memberi nama "namadomain.github.io" sampai muncul tanda ceklis hijau.
+2. 
+
+
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model
+$ git init
+Initialized empty Git repository in D:/WPU/Box-model/.git/
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git remote add origin https://github.com/irwantosiregar/box-model.github.io.git
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git remote
+origin
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/irwantosiregar/box-model.github.io.git'
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        img/
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git add .
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   img/macbook.gif
+        new file:   img/tiny_grid.png
+        new file:   index.html
+        new file:   style.css
+
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git commit -m "initial commit"
+[master (root-commit) a3f6e51] initial commit
+ 4 files changed, 182 insertions(+)
+ create mode 100644 img/macbook.gif
+ create mode 100644 img/tiny_grid.png
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git push -u origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 294.45 KiB | 9.81 MiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/irwantosiregar/box-model.github.io.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+IRWAN@DESKTOP-PUC61V7 MINGW64 /d/WPU/Box-model (master)
+$ 
+
